@@ -16,5 +16,5 @@ func SolveA(input string) string {
 		}
 	}
 
-	return fmt.Sprintf("Day 01A answer: %d", answer)
+	return fmt.Sprintf("Day 01(A) answer: %d", answer)
 }
