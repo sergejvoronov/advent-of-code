@@ -8,7 +8,7 @@ import (
 
 func SolveA(input string) string {
 	var answer int
-	edges := make([]int, 3)
+	sides := make([]int, 3)
 	sizes := strings.Split(input, "\n")
 	for _, s := range sizes {
 		if s == "" {
@@ -17,18 +17,18 @@ func SolveA(input string) string {
 
 		var areas []int
 
-		size := strings.Split(s, "x")
-		for k, v := range size {
+		sideLen := strings.Split(s, "x")
+		for k, v := range sideLen {
 			d, err := strconv.Atoi(v)
 			if err != nil {
 				panic(err)
 			}
-			edges[k] = d
+			sides[k] = d
 		}
 
-		areas = append(areas, edges[0]*edges[1])
-		areas = append(areas, edges[1]*edges[2])
-		areas = append(areas, edges[2]*edges[0])
+		areas = append(areas, sides[0]*sides[1])
+		areas = append(areas, sides[1]*sides[2])
+		areas = append(areas, sides[2]*sides[0])
 
 		extraPaper := areas[0]
 		for _, v := range areas {

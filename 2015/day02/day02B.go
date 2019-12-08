@@ -13,33 +13,38 @@ func SolveB(input string) string {
 		if s == "" {
 			continue
 		}
-		var imax, maxEdge int
-		bowLen := 1
-		edges := make([]int, 3)
 
-		size := strings.Split(s, "x")
-		for k, v := range size {
+		bowLen := 1
+		sides := make([]int, 3)
+		sideLen := strings.Split(s, "x")
+		for k, v := range sideLen {
 			d, err := strconv.Atoi(v)
 			if err != nil {
 				panic(err)
 			}
-			edges[k] = d
+			sides[k] = d
 			bowLen *= d
 		}
 
-		for i, v := range edges {
-			if maxEdge < v {
-				maxEdge = v
-				imax = i
-			}
-		}
+		sides = removeMaxSide(sides)
 
-		edges[imax] = edges[len(edges)-1]
-		edges[len(edges)-1] = 0
-		edges = edges[:len(edges)-1]
-
-		answer += 2*edges[0] + 2*edges[1] + bowLen
+		answer += 2*sides[0] + 2*sides[1] + bowLen
 	}
 
 	return fmt.Sprintf("Day 02(B) answer: %d", answer)
+}
+
+func removeMaxSide(edges []int) []int {
+	var maxSideIndex, maxSideValue int
+	for i, v := range edges {
+		if maxSideValue < v {
+			maxSideValue = v
+			maxSideIndex = i
+		}
+	}
+
+	edges[maxSideIndex] = edges[len(edges)-1]
+	edges[len(edges)-1] = 0
+	edges = edges[:len(edges)-1]
+	return edges
 }
