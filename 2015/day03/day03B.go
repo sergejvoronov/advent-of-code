@@ -5,12 +5,10 @@ import (
 )
 
 func SolveB(input string) string {
-	type House struct {
-		X, Y int
-	}
-	type Carrier struct {
-		House
-	}
+	type (
+		House   struct{ X, Y int }
+		Carrier struct{ House }
+	)
 	var c *Carrier
 
 	presents := make(map[Carrier]int)
