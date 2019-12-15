@@ -7,9 +7,13 @@ import (
 	"github.com/sergejvoronov/adventofcode/2015/day03"
 	"github.com/sergejvoronov/adventofcode/2015/day04"
 	"github.com/sergejvoronov/adventofcode/2015/day05"
+	"github.com/sergejvoronov/adventofcode/2015/day06"
 )
 
 func main() {
+	// DAY 06
+	println(day06.SolveA(adventofcode.ReadInputData("inputs/day06.input")))
+	println(day06.SolveB(adventofcode.ReadInputData("inputs/day06.input")))
 	// DAY 05
 	println(day05.SolveA(adventofcode.ReadInputData("inputs/day05.input")))
 	println(day05.SolveB(adventofcode.ReadInputData("inputs/day05.input")))
