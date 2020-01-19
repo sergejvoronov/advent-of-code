@@ -8,9 +8,13 @@ import (
 	"github.com/sergejvoronov/adventofcode/2015/day04"
 	"github.com/sergejvoronov/adventofcode/2015/day05"
 	"github.com/sergejvoronov/adventofcode/2015/day06"
+	"github.com/sergejvoronov/adventofcode/2015/day07"
 )
 
 func main() {
+	// DAY 07
+	println(day07.SolveA(adventofcode.ReadInputData("inputs/day07.input")))
+	println(day07.SolveB(adventofcode.ReadInputData("inputs/day07.input")))
 	// DAY 06
 	println(day06.SolveA(adventofcode.ReadInputData("inputs/day06.input")))
 	println(day06.SolveB(adventofcode.ReadInputData("inputs/day06.input")))
