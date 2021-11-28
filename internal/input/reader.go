@@ -13,7 +13,7 @@ import (
 const (
 	inputURL     = "https://adventofcode.com/%s/day/%s/input"
 	inputFile    = "%s-%s.input"
-	cacheDir     = "inputs"
+	cacheDir     = "input"
 	cookieName   = "session"
 	cookieDomain = ".adventofcode.com"
 )
