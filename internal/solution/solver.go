@@ -44,7 +44,6 @@ func (s *solver) Solve(year, day string) error {
 	solutions := s.solutionProviders[year]
 
 	return s.showSolutionsByDay(solutions, year, day)
-
 }
 
 func (s *solver) showSolutionsByDay(solutions []Provider, year, day string) error {
