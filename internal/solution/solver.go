@@ -21,7 +21,6 @@ type (
 func NewSolver(
 	inputReader input.Reader,
 	solutionProviders map[string][]Provider,
-
 ) Solver {
 	return &solver{
 		inputReader:       inputReader,
