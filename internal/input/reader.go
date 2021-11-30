@@ -20,7 +20,7 @@ const (
 
 type (
 	Reader interface {
-		ReadInput(year, day string) string
+		ReadInput(year, day string) (string, error)
 	}
 
 	reader struct {
@@ -32,13 +32,13 @@ func NewReader(sessionID string) Reader {
 	return &reader{SessionID: sessionID}
 }
 
-func (r *reader) ReadInput(year, day string) string {
+func (r *reader) ReadInput(year, day string) (string, error) {
 	bytes, err := r.getInputData(r.SessionID, year, day)
 	if err != nil {
-		return fmt.Sprintf("Error reading input file: %s\n", err)
+		return "", err
 	}
 
-	return string(bytes)
+	return string(bytes), nil
 }
 
 func (r *reader) getInputData(sessionID, year, day string) ([]byte, error) {

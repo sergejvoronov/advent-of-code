@@ -71,7 +71,11 @@ func (s *solver) showSolutionsByDay(solutions []Provider, year, day string) erro
 
 func (s *solver) showDaySolutions(year string, day int, provider Provider) {
 	dayString := strconv.Itoa(day)
-	dayInput := s.inputReader.ReadInput(year, dayString)
+	dayInput, err := s.inputReader.ReadInput(year, dayString)
+	if err != nil {
+		fmt.Printf("Error reading input: %v\n", err)
+		return
+	}
 	fmt.Printf("Day %s answer (A): %s\n", dayString, provider.SolveA(dayInput))
 	fmt.Printf("Day %s answer (B): %s\n", dayString, provider.SolveB(dayInput))
 }
