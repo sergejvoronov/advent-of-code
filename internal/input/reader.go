@@ -35,7 +35,7 @@ func NewReader(sessionID string) Reader {
 func (r *reader) ReadInput(year, day string) (string, error) {
 	bytes, err := r.getInputData(r.SessionID, year, day)
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("Day %v: %v", day, err)
 	}
 
 	return string(bytes), nil
