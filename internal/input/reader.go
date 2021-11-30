@@ -12,7 +12,7 @@ import (
 
 const (
 	inputURL     = "https://adventofcode.com/%s/day/%s/input"
-	inputFile    = "%s-%s.input"
+	inputFile    = "%s.input"
 	cacheDir     = "input"
 	cookieName   = "session"
 	cookieDomain = ".adventofcode.com"
@@ -42,8 +42,12 @@ func (r *reader) ReadInput(year, day string) (string, error) {
 }
 
 func (r *reader) getInputData(sessionID, year, day string) ([]byte, error) {
-	filename := fmt.Sprintf(inputFile, year, day)
-	inputFile := filepath.Join(cacheDir, filename)
+	if err := os.MkdirAll(filepath.Join(cacheDir, year), 0700); err != nil {
+		return nil, err
+	}
+
+	filename := fmt.Sprintf(inputFile, day)
+	inputFile := filepath.Join(cacheDir, year, filename)
 	if _, err := os.Stat(inputFile); err != nil && os.IsNotExist(err) {
 		req, err := r.createInputReq(sessionID, year, day)
 		if err != nil {
@@ -61,7 +65,6 @@ func (r *reader) getInputData(sessionID, year, day string) ([]byte, error) {
 
 		return body, nil
 	}
-
 	return ioutil.ReadFile(inputFile)
 }
 
