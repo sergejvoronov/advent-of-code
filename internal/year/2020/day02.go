@@ -66,8 +66,8 @@ func (*day02) SolveB(input string) string {
 	var answer int
 
 	type pack struct {
-		position1, position2     int
-		requiredLetter, password string
+		position1, position2 int
+		letter, password     string
 	}
 
 	lines := strings.Split(input, "\n")
@@ -82,22 +82,22 @@ func (*day02) SolveB(input string) string {
 		pos1, _ := strconv.Atoi(positions[0])
 		pos2, _ := strconv.Atoi(positions[1])
 		packs = append(packs, pack{
-			position1:      pos1 - 1,
-			position2:      pos2 - 1,
-			requiredLetter: policy[1],
-			password:       line[1],
+			position1: pos1 - 1,
+			position2: pos2 - 1,
+			letter:    policy[1],
+			password:  line[1],
 		})
 	}
 
 	for _, pack := range packs {
-		if string(pack.password[pack.position1]) != pack.requiredLetter {
-			if string(pack.password[pack.position2]) == pack.requiredLetter {
+		if string(pack.password[pack.position1]) != pack.letter {
+			if string(pack.password[pack.position2]) == pack.letter {
 				answer++
 			}
 			continue
 		}
 
-		if string(pack.password[pack.position2]) != pack.requiredLetter {
+		if string(pack.password[pack.position2]) != pack.letter {
 			answer++
 		}
 	}
