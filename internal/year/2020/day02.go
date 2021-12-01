@@ -91,7 +91,7 @@ func (*day02) SolveB(input string) string {
 
 	for _, pack := range packs {
 		if string(pack.password[pack.position1]) != pack.requiredLetter {
-			if string(pack.password[pack.position2]) != pack.requiredLetter {
+			if string(pack.password[pack.position2]) == pack.requiredLetter {
 				answer++
 			}
 			continue
