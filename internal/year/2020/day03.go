@@ -15,10 +15,7 @@ func Day03() solution.Provider {
 
 func (*day03) SolveA(input string) string {
 	var (
-		answer int
-
-		tree = "#"
-
+		answer      int
 		right, down = 3, 1
 		x, y        = 0, 0
 	)
@@ -35,7 +32,7 @@ func (*day03) SolveA(input string) string {
 		if x > xAxisLength-1 {
 			x -= xAxisLength
 		}
-		if string(grid[y][x]) == tree {
+		if string(grid[y][x]) == "#" {
 			answer++
 		}
 		if yAxisLength-1 == y {
@@ -47,10 +44,7 @@ func (*day03) SolveA(input string) string {
 }
 
 func (*day03) SolveB(input string) string {
-	var (
-		answer int = 1
-		tree       = "#"
-	)
+	var answer int = 1
 
 	type slope struct {
 		right, down int
@@ -65,7 +59,6 @@ func (*day03) SolveB(input string) string {
 	}
 
 	grid := strings.Split(input, "\n")
-	grid = grid[:len(grid)-1]
 
 	xAxisLength := len(grid[0])
 	yAxisLength := len(grid)
@@ -79,7 +72,7 @@ func (*day03) SolveB(input string) string {
 			if x > xAxisLength-1 {
 				x -= xAxisLength
 			}
-			if string(grid[y][x]) == tree {
+			if string(grid[y][x]) == "#" {
 				trees++
 			}
 			if yAxisLength-1 == y {

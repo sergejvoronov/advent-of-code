@@ -21,9 +21,6 @@ func (*day07) SolveA(input string) string {
 	for counter != len(signals) {
 		for _, signal := range signals[counter:] {
 			counter++
-			if signal == "" {
-				continue
-			}
 			s := strings.Split(signal, " -> ")
 			cmd := strings.Split(s[0], " ")
 			switch len(cmd) {
@@ -101,9 +98,6 @@ func (*day07) SolveB(input string) string {
 	for counter != len(signals) {
 		for _, signal := range signals[counter:] {
 			counter++
-			if signal == "" {
-				continue
-			}
 			s := strings.Split(signal, " -> ")
 			if s[1] == "b" && secondStep {
 				continue

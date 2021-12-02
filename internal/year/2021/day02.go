@@ -22,9 +22,6 @@ func (*day02) SolveA(input string) string {
 
 	p := position{}
 	for _, command := range commands {
-		if command == "" {
-			continue
-		}
 		split := strings.Split(command, " ")
 		number, _ := strconv.Atoi(split[1])
 		switch split[0] {
@@ -49,9 +46,6 @@ func (*day02) SolveB(input string) string {
 
 	p := position{}
 	for _, command := range commands {
-		if command == "" {
-			continue
-		}
 		split := strings.Split(command, " ")
 		number, _ := strconv.Atoi(split[1])
 		switch split[0] {

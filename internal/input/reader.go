@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -38,7 +39,7 @@ func (r *reader) ReadInput(year, day string) (string, error) {
 		return "", fmt.Errorf("Day %v: %v", day, err)
 	}
 
-	return string(bytes), nil
+	return strings.TrimSuffix(string(bytes), "\n"), nil
 }
 
 func (r *reader) getInputData(sessionID, year, day string) ([]byte, error) {

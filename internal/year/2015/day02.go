@@ -18,10 +18,6 @@ func (*day02) SolveA(input string) string {
 	sides := make([]int, 3)
 	sizes := strings.Split(input, "\n")
 	for _, s := range sizes {
-		if s == "" {
-			continue
-		}
-
 		var areas []int
 
 		sideLen := strings.Split(s, "x")
@@ -54,10 +50,6 @@ func (*day02) SolveB(input string) string {
 	var answer int
 	sizes := strings.Split(input, "\n")
 	for _, s := range sizes {
-		if s == "" {
-			continue
-		}
-
 		bowLen := 1
 		sides := make([]int, 3)
 		sideLen := strings.Split(s, "x")

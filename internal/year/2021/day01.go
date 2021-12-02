@@ -19,9 +19,6 @@ func (*day01) SolveA(input string) string {
 	strings := strings.Split(input, "\n")
 	numbers := make([]int, 0, len(strings))
 	for _, s := range strings {
-		if s == "" {
-			break
-		}
 		n, _ := strconv.Atoi(s)
 		numbers = append(numbers, n)
 	}
@@ -44,9 +41,6 @@ func (*day01) SolveB(input string) string {
 	strings := strings.Split(input, "\n")
 	numbers := make([]int, 0, len(strings))
 	for _, s := range strings {
-		if s == "" {
-			break
-		}
 		n, _ := strconv.Atoi(s)
 		numbers = append(numbers, n)
 	}

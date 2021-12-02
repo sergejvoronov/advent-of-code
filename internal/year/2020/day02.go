@@ -24,9 +24,6 @@ func (*day02) SolveA(input string) string {
 	lines := strings.Split(input, "\n")
 	packs := make([]pack, 0, len(lines))
 	for _, v := range lines {
-		if v == "" {
-			continue
-		}
 		line := strings.Split(v, ": ")
 		policy := strings.Split(line[0], " ")
 		minMax := strings.Split(policy[0], "-")
@@ -73,9 +70,6 @@ func (*day02) SolveB(input string) string {
 	lines := strings.Split(input, "\n")
 	packs := make([]pack, 0, len(lines))
 	for _, v := range lines {
-		if v == "" {
-			continue
-		}
 		line := strings.Split(v, ": ")
 		policy := strings.Split(line[0], " ")
 		positions := strings.Split(policy[0], "-")

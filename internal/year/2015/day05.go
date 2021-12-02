@@ -17,9 +17,6 @@ func (*day05) SolveA(input string) string {
 	var answer int
 	xs := strings.Split(input, "\n")
 	for _, s := range xs {
-		if s == "" {
-			continue
-		}
 		if hasNoNaughtyStrings(s) && hasDoubleLetters(s) && hasThreeVowels(s) {
 			answer++
 		}
@@ -34,6 +31,7 @@ func hasNoNaughtyStrings(s string) bool {
 			return false
 		}
 	}
+
 	return true
 }
 
@@ -43,6 +41,7 @@ func hasDoubleLetters(s string) bool {
 			return true
 		}
 	}
+
 	return false
 }
 
@@ -56,6 +55,7 @@ func hasThreeVowels(s string) bool {
 			return true
 		}
 	}
+
 	return false
 }
 
@@ -63,9 +63,6 @@ func (*day05) SolveB(input string) string {
 	var answer int
 	xs := strings.Split(input, "\n")
 	for _, s := range xs {
-		if s == "" {
-			continue
-		}
 		if hasLetterBetween(s) && hasPairOfLetters(s) {
 			answer++
 		}
@@ -80,6 +77,7 @@ func hasLetterBetween(s string) bool {
 			return true
 		}
 	}
+
 	return false
 }
 

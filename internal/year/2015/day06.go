@@ -34,9 +34,6 @@ func (*day06) SolveA(input string) string {
 	ll := &LitLights{}
 	commands := strings.Split(input, "\n")
 	for _, c := range commands {
-		if c == "" {
-			continue
-		}
 		ll = execCommand(*ll, parseCommand(c))
 	}
 
@@ -105,9 +102,6 @@ func (*day06) SolveB(input string) string {
 	ll := &LitLights{}
 	cmds := strings.Split(input, "\n")
 	for _, cmd := range cmds {
-		if cmd == "" {
-			continue
-		}
 		ll = execCommandB(*ll, parseCommand(cmd))
 	}
 
