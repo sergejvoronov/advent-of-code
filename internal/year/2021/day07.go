@@ -69,18 +69,16 @@ func (*day07) SolveB(input string) string {
 	}
 	mean = int(math.Floor(float64(sum) / float64(len(positions))))
 
-	// Arithmetic progression function
-	calculateFuel := func(n int) int {
-		return (n * (1 + n)) / 2
-	}
-
 	// Calculate minimal fuel consumption
 	for _, p := range positions {
 		if p == mean {
 			continue
 		}
 		distance := int(math.Abs(float64(p - mean)))
-		requiredFuel += calculateFuel(distance)
+
+		requiredFuel += func(n int) int {
+			return (n * (1 + n)) / 2
+		}(distance)
 	}
 
 	return strconv.Itoa(requiredFuel)
