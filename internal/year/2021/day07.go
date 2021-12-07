@@ -50,8 +50,6 @@ func (*day07) SolveA(input string) string {
 }
 
 func (*day07) SolveB(input string) string {
-	// input = `16,1,2,0,4,2,7,1,2,14`
-
 	content := strings.Split(input, ",")
 
 	var (
