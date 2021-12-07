@@ -38,12 +38,12 @@ func (d *day06) spawnFishes(input string, cycle int) (fishCount int) {
 		days[fish]++
 	}
 	for i := 0; i < cycle; i++ {
-		first := days[0]
+		activeFish := days[0]
 		for i := 0; i < 8; i++ {
 			days[i] = days[i+1]
 		}
-		days[6] += first
-		days[8] = first
+		days[6] += activeFish
+		days[8] = activeFish
 	}
 
 	for _, fish := range days {
